@@ -24,8 +24,10 @@ if __name__ == "__main__":
         for sing_branch in my_repo.branches:
             if str(sing_branch) == branch:
                 my_repo.git.checkout(branch)
+                my_repo.remotes.origin.pull()
             else:
                 my_repo.git.checkout("-b", branch)
+                my_repo.remotes.origin.pull()
 
     with my_repo.config_writer() as git_config:
         git_config.set_value('user', 'email', git_email)
