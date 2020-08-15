@@ -3,5 +3,9 @@ python_version = "3.8.5"
 
 [packages]
 python-dotenv
+gitpython
 
 [files]
+GIT_REPO_PATH (string of path to git repo)
+GIT_EMAIL (string of email to configure git)
+GIT_USER_NAME (string of name to configure git)
