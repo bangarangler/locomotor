@@ -1,6 +1,5 @@
 import os
 import sys
-# from subprocess import call
 import subprocess
 from git import Repo
 from dotenv import load_dotenv
@@ -37,11 +36,8 @@ if __name__ == "__main__":
 
         with open(nvm_rc) as f:
             read_data = f.read()
-            # print(read_data)
         print(read_data)
-        # call([f"nvm" f"use {str(read_data)}"])
         nvm_command = f"nvm use {str(read_data)}"
-        # switch_nvm = os.system(nvm_command)
         switch_nvm = subprocess.Popen(['/bin/zsh', '-i', '-c', nvm_command])
         switch_nvm.communicate()
         exit_code = switch_nvm.wait()
