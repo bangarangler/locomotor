@@ -1,0 +1,7 @@
+[requires]
+python_version = "3.8.5"
+
+[packages]
+python-dotenv
+
+[files]
