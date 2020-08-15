@@ -21,8 +21,11 @@ if __name__ == "__main__":
         This function will...
         1. checkout the branch name provided
         """
-
-        my_repo.git.checkout("-b", branch)
+        for sing_branch in my_repo.branches:
+            if str(sing_branch) == branch:
+                my_repo.git.checkout(branch)
+            else:
+                my_repo.git.checkout("-b", branch)
 
     with my_repo.config_writer() as git_config:
         git_config.set_value('user', 'email', git_email)
