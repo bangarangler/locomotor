@@ -16,26 +16,28 @@ if __name__ == "__main__":
         print(f"Repo description: {my_repo.description}")
         print(f"Repo active branch is {my_repo.active_branch}")
 
-    # with my_repo.config.writer() as git_config:
-    #     git_config.set_value('user', 'email', git_email)
-    #     git_config.set_value('user', 'name', git_user_name)
-    # with my_repo.config_reader() as git_config:
-    #     print(git_config.get_value('user', 'email'))
-    #     print(git_config.get_value('user', 'name'))
+    def locomotor(branch):
+        """
+        This function will...
+        1. checkout the branch name provided
+        """
+
+        my_repo.git.checkout("-b", branch)
+
+    with my_repo.config_writer() as git_config:
+        git_config.set_value('user', 'email', git_email)
+        git_config.set_value('user', 'name', git_user_name)
+    with my_repo.config_reader() as git_config:
+        print(git_config.get_value('user', 'email'))
+        print(git_config.get_value('user', 'name'))
 
     if not my_repo.bare:
         print(f"Repo at {repo_path} successfully loaded.")
         print_repo(my_repo)
+        locomotor("testPythonBranch")
 
     else:
         print("Could not load repo")
 
 
-# def locomotor(branch):
-#     """
-#     This function will...
-#     1. checkout the branch name provided
-#     """
-#
-#
 # locomotor("testPythonBranch")
