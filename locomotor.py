@@ -28,7 +28,7 @@ if __name__ == "__main__":
             print(f"{branch} is not a branch yet")
             my_repo.git.checkout("-b", branch)
         print("pulling...")
-        # # my_repo.remotes.origin.pull()
+        my_repo.remotes.origin.pull()
 
     with my_repo.config_writer() as git_config:
         git_config.set_value('user', 'email', git_email)
