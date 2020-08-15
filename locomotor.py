@@ -40,7 +40,7 @@ if __name__ == "__main__":
     if not my_repo.bare:
         print(f"Repo at {repo_path} successfully loaded.")
         print_repo(my_repo)
-        locomotor("testPythonBranch")
+        locomotor("master")
 
     else:
         print("Could not load repo")
